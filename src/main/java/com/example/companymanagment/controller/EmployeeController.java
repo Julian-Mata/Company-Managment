@@ -20,6 +20,9 @@ public class EmployeeController {
     @GetMapping
     public List<Employee> getAll(){
         List<Employee> all = employeeRepository.findAll();
+//        for(Employee employee : all){
+//            calcSalary
+//        }
         return all;
     }
 }

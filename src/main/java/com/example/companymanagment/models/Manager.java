@@ -15,8 +15,8 @@ public class Manager/*<T extends Employee>*/ extends Employee{
 //    public Manager(String name, String surname, String email, String birthday,double salary,double percentage,char type) {
 //        super(name, surname, email, birthday,salary,percentage,type);
 //    }
-//    @OneToMany(targetEntity = Manager.class, mappedBy="Manager")
-//    public List<Employee> managed;
+    @OneToMany(targetEntity = Manager.class, mappedBy="Manager")
+    public List<Employee> managed;
     public Manager() {
 
     }

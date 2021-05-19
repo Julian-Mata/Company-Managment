@@ -1,36 +1,38 @@
 package com.example.companymanagment.services;
 
-import com.example.companymanagment.models.Employee;
-import com.example.companymanagment.models.Manager;
-import com.example.companymanagment.models.Sale;
-import com.example.companymanagment.models.Seller;
+import com.example.companymanagment.models.*;
 
 import java.util.List;
 
 public class Tools {
     //calc total salary including sublevels
-    public static  void calcSalary(List<Employee> managed) {
+    public static <T extends Employee>  void  calcSalary(List<T> managed) {
         double amount = 0;
-        for(Employee t : managed){
-            if(t instanceof Manager){
-                amount = amount + getTotalAmount((Manager) t,managed); // if its manager take salary of all members managed by him
+        for(T t : managed){
+            if(t.getType()=='M'){
+                amount = amount + getTotalAmount((Manager) t, ((Manager) t).managed); // if its manager take salary of all members managed by him
             }
-            else {
-                if(!t.isCalculated()) {// check if its calculated
-                    t.calcSalary();
-                }
+            else if(t.getType()=='S'){
+                calcSalarySeller((Seller) t,((Seller)t).sales);
                 amount = amount + t.getSalary();// else take the amount from simple workers
+            }
+            else if(t.getType()=='T'){
+                calcSalaryTech((Technician) t);
             }
             t.setSalary(t.getSalary() + ((t.getPercentage()/100)*amount));
             t.setCalculated(true);
         }
 
     }
+    //for technician
+    private static void calcSalaryTech(Technician technician) {
+        technician.setCalculated(true);
+    }
 
     //for each submanager
-    private static double getTotalAmount(Manager manager,List<Employee> l) {
+    private static <T extends Employee> double getTotalAmount(Manager manager,List<T> l) {
         double total = 0;
-        List<Employee> liste = l;
+        List<T> liste = l;
         if(!manager.isCalculated()) manager.calcSalary();//if this manager have its own managed managers we implicit call calcSalary so for each level to calc properly
         for (Employee t : liste) {
             total = total + t.getSalary();
@@ -40,11 +42,11 @@ public class Tools {
     }
     //##########################################################################################################
     // SELLER
-    public void calcSalary(Seller seller,List<Sale> liste) {
+    public static void calcSalarySeller(Seller seller,List<Sale> liste) {
         seller.setSalary(seller.getSalary() + ((seller.getPercentage()/100)*getTotalAmount(liste)));
         seller.setCalculated(true);
     }
-    public double getTotalAmount(List<Sale> sales){
+    public static double getTotalAmount(List<Sale> sales){
         double total = 0;
         for(Sale s : sales){
             total = total + s.getProduktPrice();

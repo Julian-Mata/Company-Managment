@@ -10,13 +10,13 @@ import java.util.List;
 @Entity
 @PrimaryKeyJoinColumn(name = "sellerid")
 public class Seller extends Employee{
-
+//ArrayList<Sale> sales = new ArrayList<>();
 
 //    public Seller(String name, String surname, String email, String birthday, double salary, double percentage, char type) {
 //        super(name, surname, email, birthday, salary, percentage, type);
 //    }
-//    @OneToMany(targetEntity = Sale.class, mappedBy="Seller")
-//    private List<Sale> sales;
+    @OneToMany(targetEntity = Sale.class, mappedBy="Seller")
+    public List<Sale> sales;
     public Seller() {
 
     }
