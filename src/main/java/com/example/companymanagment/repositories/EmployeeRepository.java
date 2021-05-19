@@ -7,4 +7,5 @@ import org.springframework.data.jpa.repository.Query;
 
 //@NoRepositoryBean
 public interface EmployeeRepository<T extends Employee> extends JpaRepository<T,Long> {
+    //@Query("SELECT ")
 }

@@ -16,15 +16,15 @@ public class Technician extends Employee{
 
     }
 
-    @Override
-    public double getTotalAmount(Manager manager) {
-        return 0;
-    }
+//    @Override
+//    public double getTotalAmount(Manager manager) {
+//        return 0;
+//    }
 
-    @Override
-    public double getTotalAmount() {
-        return 0;
-    }
+//    @Override
+//    public double getTotalAmount() {
+//        return 0;
+//    }
 
     @Override
     public void calcSalary() {

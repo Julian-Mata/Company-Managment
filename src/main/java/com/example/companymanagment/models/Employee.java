@@ -12,7 +12,7 @@ public class Employee {
 
 
     private String surname;
-    //private String email;
+//    private String email;
     private String birthday;
     private double salary;
     private char type;
@@ -33,8 +33,8 @@ public class Employee {
 
     }
 
-    public  double getTotalAmount(Manager manager){ return 0;};
-    public  double getTotalAmount(){return 0;};
+ //   public  double getTotalAmount(Manager manager){ return 0;};
+//    public  double getTotalAmount(){return 0;};
     public  void calcSalary(){};
     public Long getID() {
         return id;
@@ -60,13 +60,13 @@ public class Employee {
         this.surname = surname;
     }
 
-    //public String getEmail() {
-     //   return email;
-    //}
-
-    //public void setEmail(String email) {
-    //    this.email = email;
-    //}
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 
     public String getBirthday() {
         return birthday;

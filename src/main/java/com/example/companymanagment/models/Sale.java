@@ -17,10 +17,10 @@ public class Sale {
 //        this.productId = productId;
 //        this.productPrice = productPrice;
 //    }
-    @ManyToOne
-    @JoinColumn(name="seller")
-    @JsonIgnore //If we use this annotation, news will be ignored and will not be showed
-    private Seller seller;
+//    @ManyToOne
+//    @JoinColumn(name="seller")
+//    @JsonIgnore //If we use this annotation, news will be ignored and will not be showed
+//    private Seller seller;
 
     public Sale() {
 

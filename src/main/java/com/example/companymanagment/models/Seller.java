@@ -15,29 +15,29 @@ public class Seller extends Employee{
 //    public Seller(String name, String surname, String email, String birthday, double salary, double percentage, char type) {
 //        super(name, surname, email, birthday, salary, percentage, type);
 //    }
-    @OneToMany(targetEntity = Sale.class, mappedBy="Seller")
-    public List<Sale> sales;
+//    @OneToMany(targetEntity = Sale.class, mappedBy="Seller")
+//    public List<Sale> sales;
     public Seller() {
 
     }
 
-    @Override
-    public void calcSalary() {
-        this.setSalary(getSalary() + ((this.getPercentage()/100)*getTotalAmount()));
-        this.setCalculated(true);
-    }
-//    public double getTotalAmount(){
+//    @Override
+//    public void calcSalary() {
+//        this.setSalary(getSalary() + ((this.getPercentage()/100)*getTotalAmount()));
+//        this.setCalculated(true);
+//    }
+//    private double getTotalAmount(){
 //        double total = 0;
 //        for(Sale s : sales){
 //            total = total + s.getProduktPrice();
 //        }
 //        return total;
 //    }
-//    public void addSold(Sale sale){
+////    public void addSold(Sale sale){
 //        this.sales.add(sale);
 //    }
-    @Override
-    public double getTotalAmount(Manager manager) {
-        return 0;
-    }
+
+//    public double getTotalAmount(Manager manager) {
+//        return 0;
+//    }
 }
